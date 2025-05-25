@@ -23,11 +23,25 @@ export default function AssetGenerator() {
   const handleEmojiSelect = (emoji: string) => {
     setSelectedEmoji(emoji);
     setSourceType('emoji');
+    setUploadedImage(null);
   };
 
   const handleImageUpload = (imageDataUrl: string) => {
     setUploadedImage(imageDataUrl);
     setSourceType('image');
+    setSelectedEmoji(null);
+  };
+
+  const handleSourceTypeChange = (type: 'emoji' | 'image') => {
+    setSourceType(type);
+    if (type === 'emoji') {
+      setUploadedImage(null);
+      if (!selectedEmoji) {
+        setSelectedEmoji('😊');
+      }
+    } else {
+      setSelectedEmoji(null);
+    }
   };
 
   const handleColorChange = (color: string) => {
@@ -59,7 +73,7 @@ export default function AssetGenerator() {
           <div className="w-full md:w-1/2">
             <div className="flex gap-4 mb-8">
               <button 
-                onClick={() => setSourceType('emoji')}
+                onClick={() => handleSourceTypeChange('emoji')}
                 className={`flex-1 p-4 rounded-lg border transition-all duration-200 ${
                   sourceType === 'emoji' 
                     ? 'border-soft-pink bg-pink-light' 
@@ -70,7 +84,7 @@ export default function AssetGenerator() {
               </button>
               
               <button 
-                onClick={() => setSourceType('image')}
+                onClick={() => handleSourceTypeChange('image')}
                 className={`flex-1 p-4 rounded-lg border transition-all duration-200 ${
                   sourceType === 'image' 
                     ? 'border-soft-pink bg-pink-light' 
