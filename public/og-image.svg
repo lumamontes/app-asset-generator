@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#gradient)" />
+  
+  <!-- Content Container -->
+  <g transform="translate(100, 100)">
+    <!-- Logo/Icon -->
+    <circle cx="100" cy="100" r="80" fill="white" />
+    <path d="M100 40 L140 120 L60 120 Z" fill="#3245FF" />
+    <circle cx="100" cy="100" r="30" fill="#BC52EE" />
+    
+    <!-- Text -->
+    <text x="200" y="80" font-family="Inter, sans-serif" font-size="48" font-weight="bold" fill="white">
+      Expo Asset Generator
+    </text>
+    <text x="200" y="140" font-family="Inter, sans-serif" font-size="24" fill="white">
+      Generate app assets from emojis or images
+    </text>
+  </g>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3245FF" />
+      <stop offset="100%" stop-color="#BC52EE" />
+    </linearGradient>
+  </defs>
+</svg> 
