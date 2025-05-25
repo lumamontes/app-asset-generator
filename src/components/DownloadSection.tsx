@@ -164,6 +164,17 @@ export default function DownloadSection({
     const element = iconRef.current?.cloneNode(true) as HTMLElement;
     element.style.width = `${size}px`;
     element.style.height = `${size}px`;
+    
+    // Adjust emoji size based on icon size
+    if (emoji && !image) {
+      const emojiElement = element.querySelector('div');
+      if (emojiElement) {
+        // Scale emoji size relative to icon size
+        const fontSize = Math.max(size * 0.6, 40); // Minimum size of 40px
+        emojiElement.style.fontSize = `${fontSize}px`;
+      }
+    }
+    
     document.body.appendChild(element);
     
     try {
@@ -178,6 +189,17 @@ export default function DownloadSection({
     const element = splashRef.current?.cloneNode(true) as HTMLElement;
     element.style.width = `${width}px`;
     element.style.height = `${height}px`;
+    
+    // Adjust emoji size based on splash screen size
+    if (emoji && !image) {
+      const emojiElement = element.querySelector('div');
+      if (emojiElement) {
+        // Scale emoji size relative to splash screen size
+        const fontSize = Math.max(Math.min(width, height) * 0.3, 200); // Minimum size of 200px
+        emojiElement.style.fontSize = `${fontSize}px`;
+      }
+    }
+    
     document.body.appendChild(element);
     
     try {
@@ -237,7 +259,8 @@ https://developer.android.com/guide/practices/ui_guidelines/icon_design
           visibility: 'hidden',
           width: 0,
           height: 0,
-          overflow: 'hidden'
+          overflow: 'hidden',
+          display: 'none'
         }}
       >
         <div 
