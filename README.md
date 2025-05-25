@@ -1,5 +1,8 @@
 # App Asset Generator
 
+![image](https://github.com/user-attachments/assets/c73626a1-2320-40cf-8a67-90fde8dc5f0e)
+
+
 A web-based tool to generate app assets (icons, splash screens, and favicons) from emojis or images with custom backgrounds. All processing happens in your browser - no data is stored.
 
 ## Features
