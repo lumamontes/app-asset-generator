@@ -6,10 +6,32 @@ interface Props {
 }
 
 const { 
-  title = 'App Asset Generator',
-  description = 'Generate app assets from emojis or images with custom backgrounds',
+  title = 'App Asset Generator - Create App Icons & Splash Screens',
+  description = 'Free online tool to generate app icons, splash screens, and favicons from emojis or images. Create beautiful app assets with custom backgrounds and colors. No data stored, all processing in your browser.',
   image = '/og-image.png'
 } = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "App Asset Generator",
+  "description": description,
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Generate app icons in various sizes",
+    "Create splash screens for different devices",
+    "Generate favicons for web use",
+    "Use emojis or upload your own images",
+    "Customize background colors and gradients",
+    "Adjust image padding and scaling"
+  ]
+};
 ---
 
 <!doctype html>
@@ -21,6 +43,9 @@ const {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+
+    <!-- Keywords -->
+    <meta name="keywords" content="app icon generator, splash screen generator, favicon generator, app assets, icon maker, app icon maker, mobile app icons, app store icons, play store icons" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -35,6 +60,12 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
